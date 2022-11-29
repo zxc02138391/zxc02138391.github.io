@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+        padding: 0;
+        margin: 0;
+        }
+
+        .container{
+            width: 960px;
+            margin: auto;
+        }
+
+        .container .title{
+            text-align: center;
+            margin: 20px;
+        }
+
+        .contain{
+            display: flex;
+        }
+        .contain .list{
+            width: 310px;
+        }
+        .contain .list:first-child .list-item{
+            flex-direction: row-reverse;
+        }
+        .contain .list:first-child .list-item .text{
+            direction: rtl;
+        }
+        .contain .main-pic{
+            width: 300px;
+            padding: 0 10px 0 10px;
+        }
+        .contain .main-pic img{
+            width: 100%;
+        }
+        .contain .list .list-item{
+            display: flex;
+            margin: 0 0 150px 0;
+        }
+        .contain .list .list-item .pic{
+            width: 70px;
+        }
+        .contain .list .list-item .pic img{
+            width: 100%;
+            border-radius: 50%;
+        }
+        .contain .list .list-item .text{
+            width: 270px;
+            padding:0 10px;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <article class="container">
+        <div class="title">
+            <h1>
+                title
+            </h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore corrupti, facilis consequatur beatae similique magnam eveniet doloremque? Alias, labore sint dictaLorem ipsum dolor sit amet consectetur adipisicing elit. Tempore corrupti, facilis consequatur beatae similique magnam eveniet doloremque? Alias, labore sint dicta </p>
+        </div>
+
+        <div class="contain">
+            <div class="list">
+                <div class="list-item">
+                    <div class="pic"><img src="https://fakeimg.pl/200x200/200"></div>
+                    <div class="text">
+                        <h2>title</h2>
+                        <p>Lorem ipsum dolor sit amet consectetus dolor voluptatem </p>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="pic"><img src="https://fakeimg.pl/200x200/200"></div>
+                    <div class="text">
+                        <h2>title</h2>
+                        <p>Lorem ipsum dolor sit amet consectetus dolor voluptatem </p>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="pic"><img src="https://fakeimg.pl/200x200/200"></div>
+                    <div class="text">
+                        <h2>title</h2>
+                        <p>Lorem ipsum dolor sit amet consectetus dolor voluptatem </p>
+                    </div>
+                </div>
+            </div>
+            <div class="main-pic"><img src="https://fakeimg.pl/300x600/200"></div>
+            <div class="list">
+                <div class="list-item">
+                    <div class="pic"><img src="https://fakeimg.pl/200x200/200"></div>
+                    <div class="text">
+                        <h2>title</h2>
+                        <p>Lorem ipsum dolor sit amet consectetus dolor voluptatem </p>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="pic"><img src="https://fakeimg.pl/200x200/200"></div>
+                    <div class="text">
+                        <h2>title</h2>
+                        <p>Lorem ipsum dolor sit amet consectetus dolor voluptatem </p>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="pic"><img src="https://fakeimg.pl/200x200/200"></div>
+                    <div class="text">
+                        <h2>title</h2>
+                        <p>Lorem ipsum dolor sit amet consectetus dolor voluptatem </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</body>
+</html>
