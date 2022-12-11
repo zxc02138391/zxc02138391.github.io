@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        
+        .section-fun,
+        .section-set,
+        .section-prove{
+            width: 960px;
+            margin: auto;
+            position: relative;
+            height: 780px;
+        }
+        .section-fun .fun,
+        .section-set .set,
+        .section-prove .prove{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 320px;
+            z-index: 2;
+        }
+        .section-fun .fun .main-title .title,
+        .section-set .set .main-title .title,
+        .section-prove .prove .main-title .title{
+            display: flex;
+            align-items: center;
+            background-color: #f00;
+            height: 120px;
+        }
+        .section-fun .fun .main-title .title p,
+        .section-set .set .main-title .title p,
+        .section-prove .prove .main-title .title p{
+            transform: rotate(90deg);
+            font-size: 120px;
+            color: #fff;
+        }
+        .section-fun .fun .main-title .title h2,
+        .section-set .set .main-title .title h2,
+        .section-prove .prove .main-title .title h2{
+            font-size: 48px;
+            color: #fff;
+        }
+        .section-fun .fun .main-title .title-content,
+        .section-set .set .main-title .title-content,
+        .section-prove .prove .main-title .title-content{
+            background-color: #000;
+        }
+        .section-fun .fun .main-title .title-content h3,
+        .section-set .set .main-title .title-content h3,
+        .section-prove .prove .main-title .title-content h3{
+            color: #fff;
+            padding: 20px 10px 0 10px;
+        }
+        .section-fun .fun .main-title .title-content p,
+        .section-set .set .main-title .title-content p,
+        .section-prove .prove .main-title .title-content p{
+            color: #fff;
+            padding: 10px;
+        }
+
+        .section-fun .kv,
+        .section-set .kv,
+        .section-prove .kv{
+            direction: rtl;
+            border: 1px #fff solid;
+        }
+        .section-fun .kv .backcol-top,
+        .section-set .kv .backcol-top,
+        .section-prove .kv .backcol-top{
+            width: 480px;
+            height: 99px;
+            background-color: #ccc;
+            margin-top: 20px;
+            
+        }
+        .section-fun .kv .kv-flex,
+        .section-set .kv .kv-flex,
+        .section-prove .kv .kv-flex{
+            display: flex;
+        }
+        .section-fun .kv .backcol-first,
+        .section-set .kv .backcol-first,
+        .section-prove .kv .backcol-first{
+            background-color: #ccc;
+            width: 60px;
+            height: 200px;
+        }
+        .section-fun .kv .main-kv,
+        .section-set .kv .main-kv,
+        .section-prove .kv .main-kv{
+            width: 680px;
+        }
+        .section-fun .kv .main-kv img,
+        .section-set .kv .main-kv img,
+        .section-prove .kv .main-kv img{
+            width: 680px;
+        }
+        .section-fun .kv .logo img,
+        .section-set .kv .logo img,
+        .section-prove .kv .logo img{
+            position: absolute;
+            width: 60px;
+            top: 330px;
+            right: 54px;
+        }
+
+        .section-fun .content,
+        .section-set .content,
+        .section-prove .content{
+            width: 640px;
+            background-color: #ccc;
+            position: absolute;
+            left: 20px;
+            top: 520px;
+        }
+        .section-fun .content .title,
+        .section-set .content .title,
+        .section-prove .content .title{
+            display: flex;
+            align-items: center;
+            margin:15px;
+        }
+        .section-fun .content .title h3,
+        .section-set .content .title h3,
+        .section-prove .content .title h3{
+            color: #f00;
+            font-weight: 600;
+        }
+        .section-fun .content .title .line,
+        .section-set .content .title .line,
+        .section-prove .content .title .line{
+            height: 1px;
+            flex-grow: 1;
+            background-color: #f00;
+        }
+        .section-fun .content .content-item,
+        .section-set .content .content-item,
+        .section-prove .content .content-item{
+            margin: 0 15px;
+        }
+        .section-fun .content .content-item .item .tit,
+        .section-set .content .content-item .item .tit,
+        .section-prove .content .content-item .item .tit{
+            display: flex;
+        }
+        .section-fun .content .content-item .item .tit h4,
+        .section-set .content .content-item .item .tit h4,
+        .section-prove .content .content-item .item .tit h4{
+            margin: 2px;
+            color: #ccc;
+            background-color: #000;
+        }
+        .section-fun .content .content-item .item .item-con,
+        .section-set .content .content-item .item .item-con,
+        .section-prove .content .content-item .item .item-con{
+            display: flex;
+        }
+        .section-fun .content .content-item .item .item-con .point,
+        .section-set .content .content-item .item .item-con .point,
+        .section-prove .content .content-item .item .item-con .point{
+            height: 3px;
+            width: 3px;
+            background-color: #f00;
+            margin-top: 9px;
+            margin-right: 6px;
+        }
+        /*--------------------------------------------------------------*/
+        .section-safe,
+        .section-people{
+            width: 960px;
+            margin: auto;
+            position: relative;
+            height: 780px;
+        }
+        .section-safe .safe,
+        .section-people .people{
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 320px;
+            z-index: 2;
+        }
+        .section-safe .safe .main-title .title,
+        .section-people .people .main-title .title{
+            display: flex;
+            align-items: center;
+            background-color: #f00;
+            height: 120px;
+        }
+        .section-safe .safe .main-title .title p,
+        .section-people .people .main-title .title p{
+            transform: rotate(90deg);
+            font-size: 120px;
+            color: #fff;
+        }
+        .section-safe .safe .main-title .title h2,
+        .section-people .people .main-title .title h2{
+            font-size: 48px;
+            color: #fff;
+        }
+        .section-safe .safe .main-title .title-content,
+        .section-people .people .main-title .title-content{
+            background-color: #000;
+        }
+        .section-safe .safe .main-title .title-content h3,
+        .section-people .people .main-title .title-content h3{
+            color: #fff;
+            padding: 20px 10px 0 10px;
+        }
+        .section-safe .safe .main-title .title-content p,
+        .section-people .people .main-title .title-content p{
+            color: #fff;
+            padding: 10px;
+        }
+
+        .section-safe .kv,
+        .section-people .kv{
+            direction: rtl;
+            border: 1px #fff solid;
+            margin-right: 140px;
+        }
+        .section-safe .kv .backcol-top,
+        .section-people .kv .backcol-top{
+            width: 480px;
+            height: 99px;
+            background-color: #ccc;
+            margin-top: 20px;
+        }
+        .section-safe .kv .kv-flex,
+        .section-people .kv .kv-flex{
+            display: flex;
+        }
+        .section-safe .kv .backcol-first,
+        .section-people .kv .backcol-first{
+            background-color: #ccc;
+            width: 60px;
+            height: 200px;
+        }
+        .section-safe .kv .main-kv,
+        .section-people .kv .main-kv {
+            width: 680px;
+        }
+        .section-safe .kv .main-kv img,
+        .section-people .kv .main-kv img{
+            width: 680px;
+        }
+        .section-safe .kv .logo img,
+        .section-people .kv .logo img{
+            position: absolute;
+            width: 60px;
+            top: 330px;
+            left: 54px;
+        }
+
+        .section-safe .content,
+        .section-people .content{
+            width: 640px;
+            background-color: #ccc;
+            position: absolute;
+            right: 20px;
+            top: 520px;
+        }
+        .section-safe .content .title,
+        .section-people .content .title{
+            display: flex;
+            align-items: center;
+            margin:15px;
+        }
+        .section-safe .content .title h3,
+        .section-people .content .title h3{
+            color: #f00;
+            font-weight: 600;
+        }
+        .section-safe .content .title .line,
+        .section-people .content .title .line{
+            height: 1px;
+            flex-grow: 1;
+            background-color: #f00;
+        }
+        .section-safe .content .content-ite,
+        .section-people .content .content-item{
+            margin: 0 15px;
+        }
+        .section-safe .content .content-item .item .tit,
+        .section-people .content .content-item .item .tit{
+            display: flex;
+        }
+        .section-safe .content .content-item .item .tit h4,
+        .section-people .content .content-item .item .tit h4{
+            margin: 2px;
+            color: #ccc;
+            background-color: #000;
+        }
+        .section-safe .content .content-item .item .item-con,
+        .section-people .content .content-item .item .item-con{
+            display: flex;
+        }
+        .section-safe .content .content-item .item .item-con .point,
+        .section-people .content .content-item .item .item-con .point{
+            height: 3px;
+            width: 3px;
+            background-color: #f00;
+            margin-top: 9px;
+            margin-right: 6px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section class=" section-fun">
+            <div class="fun">
+                <div class="main-title">
+                    <div class="title">
+                        <p>01</p>
+                        <h2>操控樂趣</h2>
+                    </div>
+                    <div class="title-content">
+                        <h3>人人滿意的駕駛體驗</h3>
+                        <p>透過最佳重量分配.實現平順起步、直線穩定加速,過彎同時保持車身平穩,帶給駕駛更靈敏的道路反饋,享受隨心馳騁的行駛快感。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="kv">
+                    <div class="backcol-top"></div>
+                    <div class="kv-flex">
+                        <div class="backcol-first"></div>
+                        <div class="main-kv"><img src="/TOYOTA圖片/toyota1.png" alt=""></div>
+                    </div>
+                    <div class="logo"><img src="/TOYOTA圖片/yt.jpg" alt=""></div>
+            </div>
+            <div class="content">
+                <div class="title">
+                    <h3>因為我們做了這些革新</h3>
+                    <div class="line"></div>
+                </div>
+                <div class="content-item">
+                    <div class="item">
+                        <div class="tit">
+                            <h4>低重心設計</h4>
+                        </div>
+                        <div class="item-con">
+                            <div class="point"></div>
+                            <p>透過低重心設計,不僅呈現更低伏的外觀,更能減少車身側傾,保持高速行駛穩定性。</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="tit">
+                            <h4>車體剛性強化</h4>
+                        </div>
+                        <div class="item-con">
+                            <div class="point"></div>
+                            <p>車身結構採超高強材高車輛穩定性同時籍雷射強化焊接術,幅增加焊點數量提升車身抗扭剛性.強化駕馭穩定性及安全性。</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="tit">
+                            <h4>四輪獨立懸吊</h4>
+                        </div>
+                        <div class="item-con">
+                            <div class="point"></div>
+                            <p>搭載全新四輪獨立懸吊設定,透過懸吊的高承強度,保持輪胎抓地力,同時兼顧轉向靈敏度與清晰路感回饋,提升駕馭樂趣。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="rev section-safe">
+            <div class="safe">
+                <div class="main-title">
+                    <div class="title">
+                        <h2>安全守護</h2>
+                        <p>02</p>
+                    </div>
+                    <div class="title-content">
+                        <h3>行車更安心的高剛性車體</h3>
+                        <p>您的愛車會妥善保護您,強悍穩固的車身可使您安全無虞。世界級的安全功能讓您輕鬆自如享受旅程、毫無後顧之憂。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="kv">
+                    <div class="backcol-top"></div>
+                    <div class="kv-flex">
+                        <div class="backcol-first"></div>
+                        <div class="main-kv"><img src="/TOYOTA圖片/toyota2.png" alt=""></div>
+                    </div>
+                    <div class="logo"><img src="/TOYOTA圖片/yt.jpg" alt=""></div>
+            </div>
+            <div class="content">
+                <div class="title">
+                    <h3>因為我們做了這些革新</h3>
+                    <div class="line"></div>
+                </div>
+                <div class="content-item">
+                    <div class="item">
+                        <div class="tit">
+                            <h4>主動安全</h4>
+                        </div>
+                        <div class="item-con">
+                            <div class="point"></div>
+                            <p>以先進的TSS系,動偵測路況,輔助駕駛判斷路況並維持行車安全。</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="tit">
+                            <h4>被動安全</h4>
+                        </div>
+                        <div class="item-con">
+                            <div class="point"></div>
+                            <p>堅固的高剛性車體,使用熱沖壓材料的高強度抗扭鋼板,強化座對意外事故的保力。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-set">
+            <div class="set">
+                <div class="main-title">
+                    <div class="title">
+                        <p>03</p>
+                        <h2>乘坐舒適</h2>
+                    </div>
+                    <div class="title-content">
+                        <h3>令人放鬆舒適的車室空間</h3>
+                        <p>車室空間設計著重人體工學,.透過方向盤、踏板等位優化.追求更舒適的駕駛位置.並以新型座椅設計,提高座椅包覆性,致力實現長途駕駛不疲勞的舒適駕馭體驗。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="kv">
+                    <div class="backcol-top"></div>
+                    <div class="kv-flex">
+                        <div class="backcol-first"></div>
+                        <div class="main-kv"><img src="/TOYOTA圖片/toyota3.png" alt=""></div>
+                    </div>
+                    <div class="logo"><img src="/TOYOTA圖片/yt.jpg" alt=""></div>
+            </div>
+            <div class="content">
+                <div class="title">
+                    <h3>因為我們做了這些革新</h3>
+                    <div class="line"></div>
+                </div>
+                <div class="content-item">
+                    <div class="item">
+                        <div class="tit">
+                            <h4>駕駛位置最佳化</h4>
+                        </div>
+                        <div class="item-con">
+                            <div class="point"></div>
+                            <p>針對駕駛位置進行徹底的修改,讓駕馭者可如同握手般自然且舒適地操控方向盤。</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="tit">
+                            <h4>駕馭視野佳</h4>
+                        </div>
+                        <div class="item-con">
+                            <div class="point"></div>
+                            <p>考量駕駛坐進車內的高度,透過前擋風玻璃位的調整.達到盲區極化,使駕駛視野更開闊,同步提升駕馭安全.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="tit">
+                            <h4>更寧靜的車室</h4>
+                        </div>
+                        <div class="item-con">
+                            <div class="point"></div>
+                            <p>採用最新三層結構的隔音材料,與引擎、變速箱的零件改革,將座的震動抑制在最小限度.提供乘客舒適安靜的感受</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-people">
+            <div class="people">
+                <div class="main-title">
+                    <div class="title">
+                        <h2>以人為本</h2>
+                        <p>04</p>
+                    </div>
+                    <div class="title-content">
+                        <h3>使用者導向的貼心設計</h3>
+                        <p>藉由高度人性化的介面整合、傳遞車輛資訊.豐富日常駕駛體驗。從提升油耗表現到行李廂空間最適化,均細心考量,更加貼近使用者真正所需與習慣,並給予即時回應</p>
+                    </div>
+                </div>
+            </div>
+            <div class="kv">
+                    <div class="backcol-top"></div>
+                    <div class="kv-flex">
+                        <div class="backcol-first"></div>
+                        <div class="main-kv"><img src="/TOYOTA圖片/toyota4.png" alt=""></div>
+                    </div>
+                    <div class="logo"><img src="/TOYOTA圖片/yt.jpg" alt=""></div>
+            </div>
+            <div class="content">
+                <div class="title">
+                    <h3>因為我們做了這些革新</h3>
+                    <div class="line"></div>
+                </div>
+                <div class="content-item">
+                    <div class="item">
+                        <div class="tit">
+                            <h4>優異油耗表現</h4>
+                        </div>
+                        <div class="item-con">
+                            <div class="point"></div>
+                            <p>以AURIS為例勁的高引擎將熱率提升達到世界級水準.破燃油效率新境界</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="tit">
+                            <h4>行李箱空間最適化</h4>
+                        </div>
+                        <div class="item-con">
+                            <div class="point"></div>
+                            <p>以PRIUS為例,透過將電池位置移到後座下方,讓行李廂擁有更大的空間。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-prove">
+            <div class="prove">
+                <div class="main-title">
+                    <div class="title">
+                        <p>05</p>
+                        <h2>引以為傲</h2>
+                    </div>
+                    <div class="title-content">
+                        <h3>極具吸引力的精心設計</h3>
+                        <p>TNGA 車款擁有讓人忍不住回的新潮外觀、讓駕駛充滿自信的駕馭快感!不僅讓車主能展現個人風格也能讓擁有者都能引以為傲</p>
+                    </div>
+                </div>
+            </div>
+            <div class="kv">
+                    <div class="backcol-top"></div>
+                    <div class="kv-flex">
+                        <div class="backcol-first"></div>
+                        <div class="main-kv"><img src="/TOYOTA圖片/toyota5.png" alt=""></div>
+                    </div>
+                    <div class="logo"><img src="/TOYOTA圖片/yt.jpg" alt=""></div>
+            </div>
+            <div class="content">
+                <div class="title">
+                    <h3>因為我們做了這些革新</h3>
+                    <div class="line"></div>
+                </div>
+                <div class="content-item">
+                    <div class="item">
+                        <div class="tit">
+                            <h4>設計概念</h4>
+                        </div>
+                        <div class="item-con">
+                            <div class="point"></div>
+                            <p>TNGA低重心設計,不僅現低伏的運動化外觀,更講究高品質內裝的一致性。</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="tit">
+                            <h4>環保概念</h4>
+                        </div>
+                        <div class="item-con">
+                            <div class="point"></div>
+                            <p>.為了對環境保護盡一份心力,我們全面提升傳統引擎、速箱與油電複合動力的動力效能。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
