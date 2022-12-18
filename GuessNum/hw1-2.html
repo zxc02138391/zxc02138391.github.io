@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .content{
+            display: flex;
+            flex-wrap: wrap;
+            width: 400px;
+            background-color: #ccc;
+        }
+        .content #num{
+            width: 100%;
+        }
+        .content button{
+            width: calc(33.33333333% - 20px);
+            height: 30px;
+            margin: 30px 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>終極密碼</h1>
+    <p id="msg">目前:<span id='small'></span>~<span id='big'></span></p><br>
+    <div class="content">
+        <input type="text" id='num'>
+        <button class="item">1</button>
+        <button class="item">2</button>
+        <button class="item">3</button>
+        <button class="item">4</button>
+        <button class="item">5</button>
+        <button class="item">6</button>
+        <button class="item">7</button>
+        <button class="item">8</button>
+        <button class="item">9</button>
+        <button class="item">0</button>
+        <button class="cancel">取消</button>
+        <button class="check">確認</button>
+        <button class="reset">重新開始</button>
+    </div>
+    
+
+    <script>
+
+        function getRandomInt(min, max) {
+                    min = Math.ceil(min);
+                    max = Math.floor(max);
+                    return Math.floor(Math.random() * (max - min) + min);
+                }
+        let inputNum = document.querySelector('input')
+        let cancelBtn = document.querySelector('.cancel')
+        let checkbtn = document.querySelector('.check')
+        let resetbtn = document.querySelector('.reset')
+        let showmsg = document.querySelector('.msg')
+        let min = 0
+        let max = 100
+        let answer = getRandomInt(min, max)
+        let allNum = document.querySelectorAll('.item')
+        let reBtn = document.querySelector('.reset')
+        var big = 100;
+        var small = 0;
+
+
+
+        checkbtn.addEventListener('click', function () {
+            let guest = inputNum.value
+            let parse = parseInt(guest, 10)
+            if(parse != NaN){
+                if(parse >= big || parse <= small){
+                    msg.innerHTML = '數字超出目前範圍,重新輸入'
+                }
+                else if(parse == answer){
+                    msg.innerHTML = `沒錯,答案是 ${answer}`
+                }
+                else if(parse > answer){
+                    big = parse
+                    msg.innerHTML = `目前:${small}~${big}`
+                }
+                else if(parse < answer){
+                    small = parse
+                    msg.innerHTML = `目前:${small}~${big}`
+                }
+            }
+            else{
+                msg.innerHTML = '請輸入數字!!!'
+            }
+            inputNum.value = ''
+        })
+        cancelBtn.addEventListener('click', function () {
+                inputNum.value = ''
+                showmsg.innerHTML = ''
+        })
+        allNum.forEach(element => {
+            element.addEventListener('click', function () {
+                inputNum.value += element.innerHTML
+            })
+        });
+        
+        reBtn.addEventListener('click', function () {
+            small = 0
+            big = 100
+            answer = getRandomInt(min, max)
+            msg.innerHTML = `目前:${small}~${big}`
+            inputNum.value = ''
+            showmsg.innerHTML = ''
+            allNum.forEach(x => {
+                x.disabled = true
+            })
+            checkbtn.disabled = true
+            cancelBtn.disabled = true
+        })
+
+
+
+
+
+    </script>
+    
+
+</body>
+</html>
