@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            line-height: 1;
+            list-style: none;
+        }
+        .main-header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #6af;
+            position: relative;
+        }
+        .logo img{
+            vertical-align: middle;
+        }
+        
+        
+        .main-nav a{
+            display: block;
+            font-size: 16px;
+            padding: 20px 10px;
+            text-decoration: none;
+            color: #333;
+        }
+        #menu-control,[id*="list-control"]{
+            display: none;
+        }
+        
+
+
+        @media screen and (width < 768px){
+            .HB{
+                width: 40px;
+                height: 40px;
+                background-color: #000;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+            }
+            .HB span{
+                width: 32px;
+                height: 2px;
+                background-color: #fff;
+            }
+            .main-nav{
+                /* display: none; */
+                position: absolute;
+                top: 100%;
+                left: -100%;
+                width: 50%;
+                height: calc(100vh - 60px);
+                background-color: #fa0;
+                opacity: 0;
+                transition: 1s;
+
+            }
+            #menu-control:checked ~ .main-header .main-nav{
+                /* display: block; */
+                left: 0;
+                opacity: 1;
+            }
+            #menu-control:checked ~ .main-header .HB span:nth-child(2){
+                display: none;
+            }
+            #menu-control:checked ~ .main-header .HB span:nth-child(1){
+                position: absolute;
+                align-self: center;
+                transform:  rotate(45deg);
+            }
+            #menu-control:checked ~ .main-header .HB span:nth-child(3){
+                position: absolute;
+                align-self: center;
+                transform:  rotate(135deg);
+            }
+
+            .main-nav a{
+                display: block;
+            }
+            .main-nav a > a{
+                border-top: 1px solid #000;
+            }
+
+            .wrap{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px;
+            flex-wrap: wrap;
+            position: relative;
+            }
+            .list-HB{
+                width: 20px;
+                height: 20px;
+                background-color: #000;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+            }
+            .list-HB span{
+                width: 16px;
+                height: 1px;
+                background-color: #fff;
+            }
+            .wrap [class*="list-nav"]{
+                width: 100%;
+                display: none;
+            }
+            #list-control-about:checked ~.wrap .list-nav-about{
+                display: block;
+            }
+            #list-control-about:checked ~ .wrap .list-HB span:nth-child(2){
+                display: none;
+            }
+            #list-control-about:checked ~ .wrap .list-HB span:nth-child(1){
+                position: absolute;
+                align-self: center;
+                transform:  rotate(45deg);
+            }
+            #list-control-about:checked ~ .wrap .list-HB span:nth-child(3){
+                position: absolute;
+                align-self: center;
+                transform:  rotate(135deg);
+            }
+            #list-control-service:checked ~.wrap .list-nav-service{
+                display: block;
+            }
+            #list-control-service:checked ~ .wrap .list-HB span:nth-child(2){
+                display: none;
+            }
+            #list-control-service:checked ~ .wrap .list-HB span:nth-child(1){
+                position: absolute;
+                align-self: center;
+                transform:  rotate(45deg);
+            }
+            #list-control-service:checked ~ .wrap .list-HB span:nth-child(3){
+                position: absolute;
+                align-self: center;
+                transform:  rotate(135deg);
+            }
+            #list-control-contact:checked ~.wrap .list-nav-contact{
+                display: block;
+            }
+            #list-control-contact:checked ~ .wrap .list-HB span:nth-child(2){
+                display: none;
+            }
+            #list-control-contact:checked ~ .wrap .list-HB span:nth-child(1){
+                position: absolute;
+                align-self: center;
+                transform:  rotate(45deg);
+            }
+            #list-control-contact:checked ~ .wrap .list-HB span:nth-child(3){
+                position: absolute;
+                align-self: center;
+                transform:  rotate(135deg);
+            }
+        }
+        @media screen and (width >= 768px){
+            .HB{
+                display: none;
+            }
+            .main-nav{
+                display: flex;
+                position: relative;
+                /* top: auto; */
+                background-color: transparent;
+            }
+            .main-nav a + a{
+                border-top: none;
+            }
+            .main-nav .wrap [class*="list-nav"]{
+                position: absolute;
+                background-color: #fa0;
+                width: 100%;
+                top:56px;
+                display: none;
+            }
+            .main-nav .wrap:hover{
+                background-color: #fa0;
+            }
+            .main-nav .wrap:hover > [class*="list-nav"]{
+                display: block;
+                width: 84px;
+            }
+            
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <input type="checkbox" name="" id="menu-control">
+    <header class="main-header">
+        <div class="logo">
+            <h1>
+                <a href=""><img src="https://fakeimg.pl/80x40/200"></a>
+            </h1>
+        </div>
+        <label for="menu-control" class="HB">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <div class="main-nav">
+            <input type="checkbox" name="" id="list-control-about">
+            <div class="wrap">
+                <a href="#">
+                    關於公司
+                </a>
+                <label for="list-control-about" class="list-HB">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                <div class="list-nav-about">
+                    <a href="#">123</a>
+                    <a href="#">123</a>
+                    <a href="#">123</a>
+                </div>
+            </div>
+            
+            
+            <input type="checkbox" name="" id="list-control-service">
+            <div class="wrap">
+                <a href="#">
+                    服務項目
+                </a>
+                <label for="list-control-service" class="list-HB">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                <div class="list-nav-service">
+                    <a href="#">123</a>
+                    <a href="#">123</a>
+                    <a href="#">123</a>
+                </div>
+            </div>
+            <input type="checkbox" name="" id="list-control-contact">
+            <div class="wrap">
+                <a href="#">
+                    聯絡我們
+                </a>
+                <label for="list-control-contact" class="list-HB">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                <div class="list-nav-contact">
+                    <a href="#">123</a>
+                    <a href="#">123</a>
+                    <a href="#">123</a>
+                </div>
+            </div>
+        </div>
+    </header>
+</body>
+
+</html>
