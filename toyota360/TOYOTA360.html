@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/9f2611dbb9.js" crossorigin="anonymous"></script>
+    <style>
+        .title{
+            width: fit-content;
+        }
+        .color{
+            width: fit-content;
+        }
+        .color .blue{
+            background-color: rgb(59, 17, 110);
+        }
+        .color .black{
+            background-color: black;
+        }
+        .color .gray{
+            background-color: gray;
+        }
+        .color .red{
+            background-color: red;
+        }
+        .color .white{
+            background-color: white;
+        }
+        .color .silver{
+            background-color: silver;
+        }
+        button{
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+        .pic360 img{
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title mx-auto">
+            <h3>360度賞車</h3>
+        </div>
+        <div class="row">
+            <div class="col-3 d-flex justify-content-center">
+                <button id="left"><i class="fa-solid fa-rotate-left"></i></button>
+            </div>
+            <div class="col-6">
+                <div class="pic360">
+                    <img src="../圖檔/360EXT_1_18_1.png" alt="">
+                </div>
+            </div>
+            <div class="col-3 d-flex justify-content-center">
+                <button id="right"><i class="fa-solid fa-rotate-right"></i></button>
+            </div>
+        </div>
+        <div class="kind-color mx-auto">
+            <h4></h4>
+        </div>
+        <div class="color mx-auto">
+            <button class="blue"></button>
+            <button class="black"></button>
+            <button class="gray"></button>
+            <button class="red"></button>
+            <button class="white"></button>
+            <button class="silver"></button>
+        </div>
+    </div>
+    <script>
+        let blue = document.querySelector('.color .blue')
+        let black = document.querySelector('.color .black')
+        let gray = document.querySelector('.color .gray')
+        let red = document.querySelector('.color .red')
+        let white = document.querySelector('.color .white')
+        let silver = document.querySelector('.color .silver')
+
+        let carSrc
+        let carArray = []
+        for(let i = 1;i <= 60;i++){
+                carSrc = '../圖檔/360EXT_1_18_' + i + '.png'
+                carArray.push(carSrc)
+            }
+        let container;
+        let left;
+        let rught;
+        let index = 0;
+        let time;
+        let X;
+        let img = document.querySelector(".container img");
+        img.draggable = false;
+        window.onload = function () {
+            container = document.getElementById("container");
+            left = document.getElementById("left");
+            right = document.getElementById("right");
+            let startX = 0;
+            img.src = carArray[index];
+
+
+
+            left.addEventListener('click', function () {
+                if (index === 59) {
+                    index = 0;
+                }
+                else {
+                    index++;
+                }
+                img.src = carArray[index];
+            })
+            right.addEventListener('click', function () {
+                if (index === 0) {
+                    index = 59;
+                }
+                else {
+                    index--;
+                }
+                img.src = carArray[index];
+            })
+        }
+        
+
+        blue.addEventListener('click',function () {
+            carArray = []
+            for(let i = 1;i <= 60;i++){
+                carSrc = '../圖檔/360EXT_1_18_' + i + '.png'
+                carArray.push(carSrc)
+                img.src = carArray[index]
+            }
+        })
+        black.addEventListener('click',function () {
+            carArray = []
+            for(let i = 1;i <= 60;i++){
+                carSrc = '../圖檔/360EXT_1_19_' + i + '.png'
+                carArray.push(carSrc)
+                img.src = carArray[index]
+            }
+        })
+        gray.addEventListener('click',function () {
+            carArray = []
+            for(let i = 1;i <= 60;i++){
+                carSrc = '../圖檔/360EXT_1_20_' + i + '.png'
+                carArray.push(carSrc)
+                img.src = carArray[index]
+            }
+        })
+        red.addEventListener('click',function () {
+            carArray = []
+            for(let i = 1;i <= 60;i++){
+                carSrc = '../圖檔/360EXT_1_22_' + i + '.png'
+                carArray.push(carSrc)
+                img.src = carArray[index]
+            }
+        })
+        white.addEventListener('click',function () {
+            carArray = []
+            for(let i = 1;i <= 60;i++){
+                carSrc = '../圖檔/360EXT_1_23_' + i + '.png'
+                carArray.push(carSrc)
+                img.src = carArray[index]
+            }
+        })
+        silver.addEventListener('click',function () {
+            carArray = []
+            for(let i = 1;i <= 60;i++){
+                carSrc = '../圖檔/360EXT_1_21_' + i + '.png'
+                carArray.push(carSrc)
+                img.src = carArray[index]
+            }
+        })
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
