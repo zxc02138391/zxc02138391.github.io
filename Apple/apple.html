@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <style>
+            .top{
+                max-width: 1200px;
+            }
+            .color{
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+            }
+        </style>
+</head>
+
+<body>
+
+
+    <div class="top d-flex flex-column align-items-center mx-auto">
+        <div class="wrap w-100">
+            <div class="btn-group w-100" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-primary">iphone</button>
+                <button type="button" class="btn btn-primary">ipad</button>
+                <button type="button" class="btn btn-primary">MacPro</button>
+            </div>
+        </div>
+        <div class="wrap dom d-flex flex-wrap w-100">
+            <!-- <div class="col-12 col-md-6 d-flex flex-column align-items-center">
+                <img class="w-100" src="./apple/macbook pro/mbp-silver-select-202206_GEO_TW.jfif" alt="">
+            </div>
+            <div class="col-12 col-md-6">
+                <h3>顏色</h3>
+                <div class="wrap d-flex align-items-center">
+                    <div class="col-6 col-md-4 d-flex">
+                        <button type="button" class="btn btn-outline-secondary mx-auto">Secondary</button>
+                    </div>
+                    <div class="col-6 col-md-4 d-flex">
+                        <button type="button" class="btn btn-outline-secondary mx-auto">Secondary</button>
+                    </div>
+                </div>
+                <h3>規格</h3>
+                <div class="wrap d-flex align-items-center">
+                    <div class="col-6 col-md-4 d-flex">
+                        <button type="button" class="btn btn-outline-secondary mx-auto">Secondary</button>
+                    </div>
+                    <div class="col-6 col-md-4 d-flex">
+                        <button type="button" class="btn btn-outline-secondary mx-auto">Secondary</button>
+                    </div>
+                </div>
+                <h3>價格</h3>
+                <p></p>
+            </div> -->
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+
+    <script>
+        let IPhoneArr = [
+            { rgb: 'rgb(255, 0, 0)', color: "白色", pic: './apple/iphone 14pro/iphone-14-pro-white.jpg', storage: "64GB", price: 24900 },
+            { rgb: 'rgb(255, 0, 0)', color: "白色", pic: './apple/iphone 14pro/iphone-14-pro-white.jpg', storage: "128GB", price: 26900 },
+            { rgb: 'rgb(255, 0, 0)', color: "白色", pic: './apple/iphone 14pro/iphone-14-pro-white.jpg', storage: "256GB", price: 30400 },
+            { rgb: 'rgb(0, 0, 0)', color: "黑色", pic: './apple/iphone 14pro/iphone-14-pro-black.jpg', storage: "64GB", price: 24900 },
+            { rgb: 'rgb(0, 0, 0)', color: "黑色", pic: './apple/iphone 14pro/iphone-14-pro-black.jpg', storage: "128GB", price: 26900 },
+            { rgb: 'rgb(0, 0, 0)', color: "黑色", pic: './apple/iphone 14pro/iphone-14-pro-black.jpg', storage: "256GB", price: 30400 },
+            { rgb: 'rgb(255, 255, 0)', color: "黃色", pic: './apple/iphone 14pro/iphone-14-pro-yellow.jpg', storage: "64GB", price: 24900 },
+            { rgb: 'rgb(255, 255, 0)', color: "黃色", pic: './apple/iphone 14pro/iphone-14-pro-yellow.jpg', storage: "128GB", price: 26900 },
+            { rgb: 'rgb(255, 255, 0)', color: "黃色", pic: './apple/iphone 14pro/iphone-14-pro-yellow.jpg', storage: "256GB", price: 30400 },
+            { rgb: 'rgb(102, 17, 107)', color: "紫色", pic: './apple/iphone 14pro/iphone-14-pro-purple.jpg', storage: "64GB", price: 24900 },
+            { rgb: 'rgb(102, 17, 107)', color: "紫色", pic: './apple/iphone 14pro/iphone-14-pro-purple.jpg', storage: "128GB", price: 26900 },
+            { rgb: 'rgb(102, 17, 107)', color: "紫色", pic: './apple/iphone 14pro/iphone-14-pro-purple.jpg', storage: "256GB", price: 30400 }
+        ];
+        let IPadArr = [
+            { rgb: 'rgb(110, 105, 105)', color: "太空灰色", pic: './apple/ipad  pro/gray.jpg', storage: "32GB", price: 10900 },
+            { rgb: 'rgb(110, 105, 105)', color: "太空灰色", pic: './apple/ipad  pro/gray.jpg', storage: "128GB", price: 13900 },
+            { rgb: 'rgb(185, 174, 174)', color: "白色", pic: './apple/ipad  pro/ipad-pro-white.jfif', storage: "32GB", price: 10900 },
+            { rgb: 'rgb(185, 174, 174)', color: "白色", pic: './apple/ipad  pro/ipad-pro-white.jfif', storage: "128GB", price: 13900 }
+        ]
+        let MacProArr = [
+            { rgb: 'rgb(110, 105, 105)', color: "太空灰色", pic: './apple/macbook pro/mbp14-gray.jpg', storage: "256GB", price: 51300 },
+            { rgb: 'rgb(110, 105, 105)', color: "太空灰色", pic: './apple/macbook pro/mbp14-gray.jpg', storage: "512GB", price: 57300 },
+            { rgb: 'rgb(110, 105, 105)', color: "太空灰色", pic: './apple/macbook pro/mbp14-gray.jpg', storage: "1TB", price: 63300 },
+            { rgb: 'rgb(110, 105, 105)', color: "太空灰色", pic: './apple/macbook pro/mbp14-gray.jpg', storage: "2TB", price: 75300 },
+            { rgb: 'rgb(185, 174, 174)', color: "白色", pic: './apple/macbook pro/mbp14-white.jpg', storage: "256GB", price: 51300 },
+            { rgb: 'rgb(185, 174, 174)', color: "白色", pic: './apple/macbook pro/mbp14-white.jpg', storage: "512GB", price: 57300 },
+            { rgb: 'rgb(185, 174, 174)', color: "白色", pic: './apple/macbook pro/mbp14-white.jpg', storage: "1TB", price: 63300 },
+            { rgb: 'rgb(185, 174, 174)', color: "白色", pic: './apple/macbook pro/mbp14-white.jpg', storage: "2TB", price: 75300 }
+        ]
+        let all = [];
+        all.push(IPhoneArr);
+        all.push(IPadArr);
+        all.push(MacProArr);
+        let picFamily = ["./apple/iphone 14pro/iphone-14-pro-family.jpg", "./apple/ipad  pro/ipad-pro-family.jpg", "./apple/macbook pro/mbp14-family.jpg"];
+        let dom = document.querySelector('.dom');
+        let btn = document.querySelectorAll(".btn");
+        btn.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                dom.innerHTML = "";
+                let product = all[index];
+                let picbox = document.createElement('div');
+                picbox.classList.add("col-12", "col-md-6", "px-3", "d-flex", "justify-content-center", "align-items-center");
+                let img = document.createElement("img");
+                img.classList.add("w-100");
+                img.src = picFamily[index];
+                picbox.append(img);
+                dom.append(picbox);
+
+                let largeBox = document.createElement("div");
+                largeBox.classList.add("col-12", "col-md-6");
+
+                let colorBox = document.createElement("div");  //item1
+                colorBox.classList.add("item");
+                let colorTitle = document.createElement("h2");
+                colorTitle.innerText = "顏色";
+                colorTitle.classList.add("fw-bolder");
+                colorBox.append(colorTitle);
+                let colorData = document.createElement("div");
+                colorData.classList.add("color-box", "row");
+                let kindArr = [];
+                product.forEach((thisproduct, ind) => {
+                    kindArr.push(thisproduct['color']);
+                });
+                let setKindArr = new Set(kindArr);
+                let colorArr = [];
+                product.forEach((thisproduct, ind) => {
+                    colorArr.push(thisproduct['rgb']);
+                });
+                let setColorArr = new Set(colorArr);
+                let setColorArray = [];
+                setColorArr.forEach(x => {
+                    setColorArray.push(x);
+                })
+                let setKindArray = [];
+                setKindArr.forEach(x => {
+                    setKindArray.push(x);
+                })
+                setKindArray.forEach((color, ind) => {
+                    let outside = document.createElement("div");
+                    outside.classList.add("box", "col-6", "col-md-4");
+                    let content = document.createElement("div");
+                    content.classList.add("content", "p-3", "pt-4", "border", "border-dark", "rounded");
+                    let circle = document.createElement("div");
+                    circle.classList.add("color", "mx-auto");
+                    circle.style.backgroundColor = setColorArray[ind];
+                    content.append(circle);
+                    let p = document.createElement("div");
+                    p.innerText = color;
+                    p.classList.add("pt-2", "text-center");
+                    content.append(p);
+                    outside.append(content);
+                    colorData.append(outside);
+                })
+                colorBox.append(colorData);
+
+                let typebox = document.createElement("div"); //item2
+                typebox.classList.add("item");
+                let sizeTitle = document.createElement("h2");
+                sizeTitle.innerText = "規格";
+                sizeTitle.classList.add("fw-bolder");
+                typebox.append(sizeTitle);
+                let priceData = document.createElement("div");
+                priceData.classList.add("price-box", "row");
+                let typeArr = [];
+                product.forEach((thisproduct, ind) => {
+                    typeArr.push(thisproduct['storage']);
+                });
+                let setTypeArr = new Set(typeArr);
+                let setTypeArray = [];
+                setTypeArr.forEach(x => {
+                    setTypeArray.push(x);
+                })
+                let priceArr = [];
+                product.forEach((thisproduct, ind) => {
+                    priceArr.push(thisproduct['price']);
+                });
+                // let set4 = new Set(priceArr);
+                setTypeArray.forEach((x, ind) => {
+                    let outside = document.createElement("div");
+                    outside.classList.add("box", "col-6", "col-md-4");
+                    let content = document.createElement("div");
+                    content.classList.add("content", "p-3", "pt-4", "border", "border-dark", "rounded", "text-center", "price-box-item");
+                    let p1 = document.createElement("p");
+                    p1.classList.add("size", "fw-bolder");
+                    p1.innerText = x;
+                    let p2 = document.createElement("p");
+                    p2.classList.add("price");
+                    p2.innerText = "NT$" + product[ind]['price'];
+                    content.append(p1);
+                    content.append(p2);
+                    outside.append(content);
+                    priceData.append(outside);
+                })
+
+                let item = document.createElement("div");
+                let priceTitle = document.createElement("h2");
+                priceTitle.classList.add("fw-bolder");
+                priceTitle.innerText = "價格試算";
+                let total = document.createElement("div");
+                total.classList.add("total");
+                item.append(priceTitle);
+                item.append(total);
+                typebox.append(priceData);
+                largeBox.append(colorBox);
+                largeBox.append(typebox);
+                largeBox.append(item);
+                dom.append(largeBox);
+
+
+                let total1 = document.querySelector(".total");
+                let choosePrice = document.querySelectorAll(".price-box-item");
+                choosePrice.forEach(item => {
+                    item.addEventListener('click', () => {
+                        total1.innerText = item.querySelector(".price").innerText;
+                    })
+                })
+
+
+
+                let chooseColorArr = document.querySelectorAll(".color-box .box");
+                chooseColorArr.forEach(item => {
+                    item.addEventListener('click', () => {
+                        let RGB = product.find(x =>  x['color'] == item.querySelector('.text-center').innerText)['pic'];
+                        img.src = RGB;
+                    })
+                })
+            })
+        })
+
+    </script>
+</body>
+
+</html>
